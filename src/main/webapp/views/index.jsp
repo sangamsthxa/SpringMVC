@@ -7,9 +7,14 @@
 </head>
 <body>
 Welcome to Spring Boot Framework!
-<form action="addAlien">
+<form action="addAlien" method="POST">
     Enter Alien Id: <input type="number" name="aid"> <br>
     Enter Alien Name: <input type="text" name="aname"> <br>
+    <input type="submit">
+</form>
+
+<form action="getAlien" method="GET">
+    Enter Alien Id: <input type="number" name="aid"> <br>
     <input type="submit">
 </form>
 </body>
