@@ -1,7 +1,14 @@
 package org.sangam.springmvc.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "alien")
 public class Alien {
 
+    @Id
     private int aid;
     private String aname;
 

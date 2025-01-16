@@ -39,7 +39,7 @@ public class HomeController
     }
 
     @RequestMapping("addAlien")
-    public String addAlien(@ModelAttribute("result") Alien alien){
+    public String addAlien(@ModelAttribute("alien") Alien alien){
         alienDao.addAlien(alien);
         return "result";
     }
@@ -51,8 +51,15 @@ public class HomeController
     }
 
     @GetMapping("getAlien")
-    public String getAliens(@RequestParam("id") int aid, Model model){
-        model.addAttribute("result", alienDao.getAlien(aid));
+    public String getAlien(@RequestParam("id") int aid, Model model) {
+        Alien alien = alienDao.getAlien(aid);
+
+        if (alien != null) {
+            System.out.println(alien);
+            model.addAttribute("result", alien);
+        } else {
+            System.out.println("Alien not found.");
+        }
         return "showAliens";
     }
 
